@@ -1,0 +1,8 @@
+# Imagem base (Nginx)
+FROM nginx:latest
+
+#Exportando a pasta site para o diretório do Nginx
+COPY ./site /usr/share/nginx/html
+
+#Expondo o site na porta 80 para o tráfego HTTP
+EXPOSE 80
