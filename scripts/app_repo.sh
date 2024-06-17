@@ -1,12 +1,18 @@
 if [ $# -ne 3 ]; then
-    echo "[ADA]: Utilize: $0 <name> <user> <key>"
+    echo "[DAA]: Utilize: $0 <name> <public/private> <user/account>"
     exit 1
 fi
 
 NAME=$1
-USR=$2
-TKN=$3
+STATUS=$2
+ACCOUNT=$3
 
-echo "[ADA]: Criando repositório Github para a aplicação $1..."
-curl -u $USR:$TKN -d '{"name":'$NAME',"private":false}' https://api.github.com/user/repos
-echo "[ADA]: Script de criação do repositório remoto finalizado!"
+if [ "$STATUS" != "public" ] && [ "$STATUS" != "private" ]; then
+    echo "[DAA]: Erro! Visibilidade do repositório inválida!"
+else
+    echo "[DAA]: Criando repositório Github para a aplicação $NAME..."
+    gh repo create $NAME --$STATUS
+    cd ../../
+    gh repo clone $ACCOUNT/$NAME
+    echo "[DAA]: Script de criação do repositório remoto finalizado!"
+fi

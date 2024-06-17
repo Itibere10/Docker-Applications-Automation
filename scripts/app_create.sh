@@ -1,31 +1,31 @@
 # Verifica se o número correto de argumentos foi passado
-if [ $# -ne 2 ]; then
-    echo "[ADA]: Utilize: $0 <type> <name>"
+if [ $# -ne 4 ]; then
+    echo "[DAA]: Utilize: $0 <type> <name> <public/private> <user/account>"
     exit 1
 fi
 
 # Atribui os argumentos às variáveis correspondentes
 TYPE=$1
 NAME=$2
+STATUS=$3
+ACCOUNT=$4
+MODEL_PATH=""
 
 # Criando um modelo de aplicação em Frontend
 if [ "$TYPE" = "frontend" ]; then
-    echo "[ADA]: Realizando a criação da aplicação de frontend..."
-    cp -r ../models/frontend ../../$NAME
-    cd ../../$NAME
-    ./app_repo.sh $NAME
-    #git init
-    #git add .
-    #git status
-    #git commit -m "[ADA]: Criação inicial da aplicação de frontend $NAME"
-    #git push
-    #echo "[ADA]: Diretório da aplicação $NAME criado com sucesso!"
-    # Coloque aqui o código que deseja executar para frontend
-elif [ "$TYPE" = "system" ]; then
-    echo "[ADA]: Realizando a criação da aplicação de sistema..."
-    # Coloque aqui o código que deseja executar para system
-    echo "[ADA]: Ainda não configurado!"
+    echo "[DAA]: Realizando a criação da aplicação de frontend..."
+    MODEL_PATH="../models/frontend/*"
 else
     echo "Tipo desconhecido: $TYPE"
     exit 1
 fi
+
+# Realizando Atualização do repositório com os padrões esperados
+./app_repo.sh $NAME $STATUS $ACCOUNT
+cp -r $MODEL_PATH ../../$NAME
+cd ../../$NAME
+git add .
+git status
+git commit -m "[DAA]: Criação inicial da aplicação $NAME"
+git push
+echo "[DAA]: Repositório da aplicação $NAME criado com sucesso!"
