@@ -12,9 +12,12 @@ ACCOUNT=$4
 MODEL_PATH=""
 
 # Criando um modelo de aplicação em Frontend
-if [ "$TYPE" = "frontend" ]; then
-    echo "[DAA]: Realizando a criação da aplicação de frontend..."
-    MODEL_PATH="../models/frontend/*"
+if [ "$TYPE" = "frontend-simple" ]; then
+    echo "[DAA]: Realizando a criação da aplicação de frontend simples..."
+    MODEL_PATH="../models/frontend-simple/*"
+elif [ "$TYPE" = "frontend-react" ]; then
+    echo "[DAA]: Realizando a criação da aplicação de frontend com react..."
+    MODEL_PATH="../models/frontend-react/*"
 else
     echo "Tipo desconhecido: $TYPE"
     exit 1
