@@ -11,12 +11,9 @@ PORT=$3
 
 # Checando se a imagem docker existe
 CHECK=$(docker images $NAME:$TAG)
-
 if echo "$CHECK" | grep -q "$NAME"; then
-#if docker images $NAME_AND_TAG | grep -e -s -- $NAME_AND_TAG; then
     # Caso exista:
     echo "[DAA] A imagem $NAME:$TAG foi encontrada localmente! Dando continuidade no processo..."
-
     # Executa a exposição do Container no host
     echo "[DAA]: Realizando subida de um Container da aplicação $NAME utilizando a imagem $NAME:$TAG para a porta $PORT..."
     docker run -d -p $PORT:80 --name $NAME $NAME:$TAG

@@ -15,7 +15,7 @@ if echo "$CHECK" | grep -q "$NAME"; then
     echo "[DAA] A imagem $NAME:$TAG foi encontrada localmente! Dando continuidade no processo..."
     # Executa a exposição do Container no host
     echo "[DAA]: Realizando subida de um Container da aplicação $NAME utilizando a imagem $NAME:$TAG em modo iterativo."
-    docker run -it --name $NAME $NAME:$TAG
+    docker run --name $NAME $NAME:$TAG
     docker rm $NAME
     echo "[DAA]: Interação via terminal da $NAME finalizada!"
 else
