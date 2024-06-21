@@ -15,7 +15,7 @@ if docker ps -a | grep -q "$NAME"; then
     if [ $ACTION = "stop" ]; then 
         echo "[DAA] O container $NAME foi encontrado e será parado! Dando continuidade no processo..."
         # Executa a parada forçada do container
-        docker kill $NAME
+        docker stop $NAME
         echo "[DAA]: Script para parar o container $NAME finalizado!"
     elif [ $ACTION = "kill" ]; then
         echo "[DAA] O container $NAME foi encontrado e será morto (force stop)! Dando continuidade no processo..."
