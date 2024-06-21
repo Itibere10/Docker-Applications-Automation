@@ -8,13 +8,17 @@ fi
 APP=$1
 USER=$2
 
-echo "[DAA]: Realizando a remoção do repositório remoto (se existir)..."
-gh auth refresh -h github.com -s delete_repo
-gh repo delete $USER/$APP --yes
+# Remoção do container
+echo "[DAA]: Realizando a remoção do container (se existir).."
+docker rm $APP
+# Remoção da imagem
+echo "[DAA]: Realizando a remoção da imagem (se existir).."
+docker rmi $APP
+# Remoção do repositório local
 echo "[DAA]: Realizando a remoção do repositório local (se existir)..."
 cd ../../
 rm -rf $APP
-echo "[DAA]: Realizando a remoção do container (se existir).."
-docker rm $APP
-echo "[DAA]: Realizando a remoção da imagem (se existir).."
-docker rmi $APP
+# Remoção do repositório remoto
+echo "[DAA]: Realizando a remoção do repositório remoto (se existir)..."
+gh auth refresh -h github.com -s delete_repo
+gh repo delete $USER/$APP --yes
