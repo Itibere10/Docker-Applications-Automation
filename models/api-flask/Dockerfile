@@ -1,0 +1,18 @@
+# Instala o SO para executar os scripts Python
+FROM alpine:latest
+
+# Copia os arquivos da api (e talvez outros arquivos necessários) para o container
+COPY ./* /
+RUN rm Dockerfile
+
+# Faz a atualização dos pacotes e instala o Python 3
+RUN apk update
+RUN apk add python3
+RUN apk add py3-pip
+RUN pip3 install flask --break-system-packages
+
+#Expôe a API na porta 80 do container
+EXPOSE 80
+
+# Realiza a execução do script principal do Python
+ENTRYPOINT [ "python3", "api.py" ]
