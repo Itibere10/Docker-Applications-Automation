@@ -4,6 +4,7 @@ FROM alpine:latest
 # Copia os arquivos dos scritps e requirements para dentro do container
 COPY ./* /
 RUN rm Dockerfile
+RUN rm README.md
 
 # Faz a atualização dos pacotes e instala o Python 3
 RUN apk update

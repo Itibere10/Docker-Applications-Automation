@@ -1,2 +1,2 @@
-# docker-apps
-Repositório para armazenar modelos de aplicações docker (Frontend, Backent, SOs, Scripts, etc)
+# Docker Applications Automation
+Repositório para armazenar modelos e scripts para as criações automatizadas de aplicações containerizadas
