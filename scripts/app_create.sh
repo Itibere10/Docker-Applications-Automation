@@ -25,8 +25,10 @@ if [ "$DESTINATION" = "local" ]; then
 elif [ "$DESTINATION" = "github" ]; then
     echo "[DAA]: Realizando a criação do repositório remoto (Github) para a aplicação $NAME..."
     echo "[DAA]: O repositório também será clonado e sincronizado localmente..."
-    STATUS="$(./app_repo_configs status)"
-    ACCOUNT="$(./app_repo_configs account)"
+    echo "Digite se o repositório será público ou privado (utilize public ou private):"
+    STATUS="$(./app_repo_configs.sh status)"
+    echo "Digite o nome de usuário/conta do Github:"
+    ACCOUNT="$(./app_repo_configs.sh account)"
     ./app_repo_create.sh $NAME $STATUS $ACCOUNT
     cp -r $MODEL_PATH ../../$NAME
     cd ../../$NAME
