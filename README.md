@@ -3,6 +3,8 @@
 Repositório para armazenar modelos e scripts para as criações automatizadas de aplicações containerizadas.
 
 ## Instalação de ferramentas necessárias
+* As ferramentas que você irá precisar para executar a aplicação são o Git (para Git e Git Bash), a Github CLI e o Docker (para comandos Docker, então podem ser alternativas, como WSL, Rancher Desktop, etc).
+
 Instalando com o **Chocolatey:**
 ``` bash
 choco install gh git docker-desktop -r -y
