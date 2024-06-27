@@ -1,5 +1,3 @@
-# Verifica se o número correto de argumentos foi passado
-
 if [ $# -ne 2 ]; then
     echo "[DAA]: Utilize: $0 <type> <name>"
     exit 1

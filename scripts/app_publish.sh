@@ -1,5 +1,3 @@
-# Verifica se o número correto de argumentos foi passado
-
 if [ $# -ne 3 ]; then
     echo "[DAA]: Utilize: $0 <name/local repository> <public/private> <Github User/Account>"
     exit 1
