@@ -5,6 +5,7 @@ FROM alpine:latest
 COPY ./* /
 RUN rm Dockerfile
 RUN rm README.md
+RUN rm Compose.yaml
 
 # Faz a atualização dos pacotes e instala o Python 3
 RUN apk update
