@@ -1,4 +1,3 @@
 # (DAA) Application
-* **Type:**  Frontend (Simple - HTML/CSS/Javascript)
-* **Recommended run mode:** Exposed
-* **DAA build script reference:** frontend-simple
+* **Type:**  Frontend Vanilla (Simple - HTML/CSS/Javascript)
+* **DAA build script reference:** frontend-vanilla
