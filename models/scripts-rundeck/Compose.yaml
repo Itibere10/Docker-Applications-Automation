@@ -1,0 +1,14 @@
+# Main name
+name: rundeck
+
+services:
+  rundeck:
+    image: rundeck/rundeck:5.4.0
+    container_name: rundeck
+    ports:
+      - "4440:4440"
+    volumes:
+      - data:/home/rundeck/server/data
+
+volumes:
+  data:
