@@ -15,7 +15,6 @@ services:
 volumes:
 EOF
 
-
 # Loop para verificar cada argumento a partir do segundo
 for ((i = 2; i <= $#; i++)); do
     # Captura o argumento atual
@@ -63,16 +62,10 @@ echo "[DAA]: Repositório da aplicação $APP_NAME criado com sucesso!"
 echo -e ""
 echo "[DAA]: Buscando e adicionando arquivos necessários para os aplicativos..."
 
-# Loop para verificar cada argumento a partir do segundo
 for ((i = 2; i <= $#; i++)); do
     ARG="${!i}"
     cp -r $MODELS_PATH/$ARG-* ../../$APP_NAME
 done
 
 cd ../../$APP_NAME
-
-## Renomeia o Dockerfile
-#mv Dockerfile* Dockerfile
-#mv *Dockerfile Dockerfile
-
 echo -e "\n[DAA]: Aplicação $APP_NAME criada!"
