@@ -1,10 +1,7 @@
-# Main name
-name: monitoring-pack
-services:
-
-  # Glances System and Containers Monitoring
+###### start-service-glances
   glances:
     image: nicolargo/glances:latest-full
+    container_name: glances
     restart: always
     ports:
       - "61208-61209:61208-61209"
@@ -15,12 +12,4 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /run/user/1000/podman/podman.sock:/run/user/1000/podman/podman.sock:ro
     pid: host
-
-  # Doku Docker Containers monitoring
-  doku:
-    image: amerkurev/doku:v0.0.16
-    ports:
-      - 9090:9090
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock:ro
-      - /:/hostroot:ro
+###### end-service-glances

@@ -1,0 +1,10 @@
+###### start-service-scripts-python
+  scripts-python:
+    build:
+      context: .
+      dockerfile: scripts-python-Dockerfile
+    image: scripts-python-image
+    container_name: scripts-python
+    environment:
+      TZ: "America/Sao_Paulo"
+###### end-service-scripts-python

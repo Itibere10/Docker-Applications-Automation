@@ -2,10 +2,7 @@
 FROM alpine:latest
 
 # Copia os arquivos da api (e talvez outros arquivos necessários) para o container
-COPY ./* /
-RUN rm Dockerfile
-RUN rm README.md
-RUN rm Compose.yaml
+COPY flask-api.py /
 
 # Faz a atualização dos pacotes e instala o Python 3
 RUN apk update
@@ -17,4 +14,4 @@ RUN pip3 install flask --break-system-packages
 EXPOSE 80
 
 # Realiza a execução do script principal do Python
-ENTRYPOINT [ "python3", "api.py" ]
+ENTRYPOINT [ "python3", "flask-api.py" ]

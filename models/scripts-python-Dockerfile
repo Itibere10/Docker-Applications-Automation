@@ -18,4 +18,4 @@ RUN pip3 install -r requirements.txt --break-system-packages
 #RUN apk add py3-scikit-learn
 
 # Realiza a execução do script principal do Python
-ENTRYPOINT ["python", "/main.py"]
+ENTRYPOINT ["python", "/scripts-python-main.py"]

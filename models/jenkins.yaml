@@ -1,8 +1,4 @@
-# Main name
-name: jenkins
-
-services:
-  # Service name
+###### start-service-jenkins
   jenkins:
     image: jenkins/jenkins:lts-jdk17
     container_name: jenkins
@@ -12,7 +8,8 @@ services:
     restart: on-failure
     volumes:
       - jenkins_home:/var/jenkins_home
+###### end-service-jenkins
 
-#Volumes
-volumes:
+###### start-volumes-jenkins
   jenkins_home:
+###### end-volumes-jenkins

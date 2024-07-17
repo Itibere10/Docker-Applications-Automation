@@ -1,7 +1,4 @@
-# Main name
-name: rundeck
-
-services:
+###### start-service-rundeck
   rundeck:
     image: rundeck/rundeck:5.4.0
     container_name: rundeck
@@ -9,6 +6,8 @@ services:
       - "4440:4440"
     volumes:
       - data:/home/rundeck/server/data
+###### end-service-rundeck
 
-volumes:
+###### start-volumes-rundeck
   data:
+###### end-volumes-rundeck

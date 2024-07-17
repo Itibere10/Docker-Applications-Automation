@@ -1,0 +1,12 @@
+###### start-service-flask
+  api-flask:
+    build:
+      context: .
+      dockerfile: flask-Dockerfile
+    image: api-flask-image
+    container_name: api-flask
+    ports:
+      - "8080:80"
+    environment:
+      TZ: "America/Sao_Paulo"
+###### end-service-flask

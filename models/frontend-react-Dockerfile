@@ -11,7 +11,7 @@ COPY /site/package-lock.json ./
 RUN npm install --production
 
 # Copia o restante dos arquivos
-COPY /site/. .
+COPY frontend-react-site/. .
 
 # Constrói a aplicação React para produção
 RUN npm run build
