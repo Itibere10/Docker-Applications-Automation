@@ -3,7 +3,7 @@ cd scripts/
 
 # Opções de manipulação das aplicações
 if [ $# -ne 1 ]; then
-    echo "[DAA]: Utilize: $0 <create/build/publish/run/stop/clear/list/help>"
+    echo "[DAA]: Utilize: $0 <create/deploy/kill/prune/publish>"
     exit 1
 fi
 ACTION=$1

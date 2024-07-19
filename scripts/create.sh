@@ -5,6 +5,14 @@ fi
 
 MODELS_PATH="../models"
 APP_NAME=$1
+DIR=$(pwd)
+
+cd ../..
+if [ -d "$APP_NAME" ]; then
+    echo "[DAA]: Erro! O diretório/aplicação $APP_NAME já existe!"
+    exit 1
+fi
+cd $DIR
 
 echo "[DAA]: Criando Compose.yaml da aplicação $APP_NAME..."
 cat << EOF > "Compose.yaml"
@@ -56,7 +64,6 @@ echo "[DAA]: Realizando a criação do repositório local para a aplicação $AP
 mkdir -p ../../$APP_NAME
 cp -r Compose.yaml ../../$APP_NAME/
 rm Compose.yaml
-#cd ../../$APP_NAME
 echo "[DAA]: Repositório da aplicação $APP_NAME criado com sucesso!"
 
 echo -e ""
